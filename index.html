@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Servicios Integrales de Construcción y Asesoría Técnica</title>
-  <meta name="description" content="Servicios integrales para arquitectos, ingenieros, constructores y proyectos residenciales, comerciales e industriales.">
+  <title>SERVICIOS + CONSTRUCCIÓN | Dirección &amp; Coordinación General</title>
+  <meta name="description" content="Servicios integrales para arquitectos, ingenieros, constructores y proyectos residenciales, comerciales e industriales en Monterrey y su Área Metropolitana.">
+
+  <!-- Metadatos para vista previa al compartir en WhatsApp y redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SERVICIOS + CONSTRUCCIÓN | Dirección &amp; Coordinación General">
+  <meta property="og:description" content="Servicios integrales para arquitectos, ingenieros, constructores y proyectos residenciales, comerciales e industriales en Monterrey y su Área Metropolitana.">
+  <meta property="og:image" content="https://eraltre.constructoraeraltre.workers.dev/logo.jpeg">
+  <meta property="og:image:secure_url" content="https://eraltre.constructoraeraltre.workers.dev/logo.jpeg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:url" content="https://eraltre.constructoraeraltre.workers.dev/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SERVICIOS + CONSTRUCCIÓN | Dirección &amp; Coordinación General">
+  <meta name="twitter:description" content="Servicios integrales para arquitectos, ingenieros, constructores y proyectos residenciales, comerciales e industriales en Monterrey y su Área Metropolitana.">
+  <meta name="twitter:image" content="https://eraltre.constructoraeraltre.workers.dev/logo.jpeg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,17 +71,24 @@
       letter-spacing: -0.3px;
     }
 
-    /* Efecto de revelación gradual al mostrarse por primera vez */
-    @keyframes revealEntrance {
-      0% {
-        opacity: 0;
-        transform: translateY(26px) scale(0.995);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    /* SISTEMA DE REVELADO FLUIDO AL HACER SCROLL */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Delays sutiles para elementos continuos o tarjetas */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
 
     /* Navegación y Encabezado */
     .header-nav {
@@ -177,10 +199,9 @@
 
     .page-view.active-view {
       display: block;
-      animation: revealEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* HERO: FONDO CON 10% MÁS DE VISIBILIDAD EN PC */
+    /* HERO: FONDO CON fondo.jpeg */
     .hero-banner-pro {
       position: relative;
       border-radius: var(--radius-lg);
@@ -195,7 +216,6 @@
       background-repeat: no-repeat;
     }
 
-    /* Capa con opacidad reducida en 10% para que el fondo se aprecie más claro en toda la pantalla */
     .hero-banner-pro::before {
       content: "";
       position: absolute;
@@ -988,7 +1008,6 @@
         font-size: 1rem;
       }
 
-      /* EN MÓVILES: 10% MÁS DE VISIBILIDAD DEL FONDO (OPACIDAD AJUSTADA) */
       .hero-banner-pro {
         background-position: 65% center;
       }
@@ -1057,7 +1076,7 @@
 </head>
 <body>
 
-  <!-- Barra de Navegación con logo.jpeg -->
+  <!-- Barra de Navegación -->
   <header class="header-nav">
     <div class="nav-container">
       <a href="#inicio" class="brand-logo" onclick="navigateTo('inicio')">
@@ -1088,8 +1107,7 @@
     <!-- PÁGINA 1: INICIO -->
     <section id="view-inicio" class="page-view active-view">
       
-      <!-- HERO CON FONDO OPTIMIZADO PARA MAYOR VISIBILIDAD (+10%) -->
-      <div class="hero-banner-pro">
+      <div class="hero-banner-pro scroll-reveal">
         <div class="hero-banner-inner">
           <span class="hero-tag-badge">
             <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
@@ -1121,13 +1139,13 @@
         </div>
       </div>
 
-      <!-- FRASE DE MARCA PERFECTAMENTE CENTRADA -->
-      <div class="motto-bar">
+      <!-- FRASE DE MARCA CENTRADA -->
+      <div class="motto-bar scroll-reveal">
         <p>"El camino al éxito <span>siempre está en construcción.</span>"</p>
       </div>
 
-      <!-- ZONA DE COBERTURA CENTRADA CON SEPARADOR ELEGANTE -->
-      <div class="coverage-centered-section">
+      <!-- ZONA DE COBERTURA CENTRADA CON SEPARADOR -->
+      <div class="coverage-centered-section scroll-reveal">
         <div class="coverage-title-wrapper">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
           <span>Zona de Cobertura</span>
@@ -1142,7 +1160,7 @@
 
       <!-- 4 Pilares -->
       <div class="card-grid-4">
-        <div class="card-pillar">
+        <div class="card-pillar scroll-reveal delay-1">
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
@@ -1150,7 +1168,7 @@
           <p>Cobertura integral desde el análisis preliminar de terreno hasta el último acabado arquitectónico.</p>
         </div>
 
-        <div class="card-pillar">
+        <div class="card-pillar scroll-reveal delay-2">
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
@@ -1158,7 +1176,7 @@
           <p>Operación conforme a especificaciones técnicas, planos y tiempos pactados de entrega.</p>
         </div>
 
-        <div class="card-pillar">
+        <div class="card-pillar scroll-reveal delay-3">
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
@@ -1166,7 +1184,7 @@
           <p>Un solo frente de mando para gestionar maquinaria, acarreos, suministros y cuadrillas.</p>
         </div>
 
-        <div class="card-pillar">
+        <div class="card-pillar scroll-reveal delay-4">
           <div class="pillar-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
@@ -1176,31 +1194,31 @@
       </div>
 
       <!-- Secuencia Operativa -->
-      <div class="workflow-strip">
+      <div class="workflow-strip scroll-reveal">
         <h3>Secuencia Operativa de Obra</h3>
         <p class="sub-title">Compromiso técnico estructurado en 5 etapas secuenciales</p>
         <div class="steps-container">
-          <div class="step-node">
+          <div class="step-node scroll-reveal delay-1">
             <div class="step-number">1</div>
             <h5>Planeación</h5>
             <p>Revisión técnica, volumetría y catálogo de conceptos.</p>
           </div>
-          <div class="step-node">
+          <div class="step-node scroll-reveal delay-2">
             <div class="step-number">2</div>
             <h5>Ejecución</h5>
             <p>Despliegue de maquinaria, terracerías y colados en sitio.</p>
           </div>
-          <div class="step-node">
+          <div class="step-node scroll-reveal delay-3">
             <div class="step-number">3</div>
             <h5>Coordinación</h5>
             <p>Control de suministros, logística de acarreo y personal.</p>
           </div>
-          <div class="step-node">
+          <div class="step-node scroll-reveal delay-4">
             <div class="step-number">4</div>
             <h5>Solución en Obra</h5>
             <p>Resolución práctica de imprevistos y ajustes constructivos.</p>
           </div>
-          <div class="step-node">
+          <div class="step-node scroll-reveal delay-4">
             <div class="step-number">5</div>
             <h5>Resultados</h5>
             <p>Entrega puntual de partidas concluidas y verificadas.</p>
@@ -1211,12 +1229,12 @@
 
     <!-- PÁGINA 2: NOSOTROS + IDENTIDAD ABAJO -->
     <section id="view-nosotros" class="page-view">
-      <div class="view-header">
+      <div class="view-header scroll-reveal">
         <h2>¿Quiénes Somos?</h2>
         <p>Soluciones prácticas, técnicas y confiables para la industria de la construcción.</p>
       </div>
 
-      <div class="about-lead-box">
+      <div class="about-lead-box scroll-reveal">
         <h3>Especialistas en Ejecución y Solución Operativa</h3>
         <p>
           Somos una empresa dedicada a la <strong>ejecución, suministro, coordinación y solución</strong> de trabajos relacionados con construcción, remodelación, mantenimiento y servicios especializados.
@@ -1229,30 +1247,29 @@
         </p>
 
         <div class="about-scope-grid">
-          <div class="about-scope-card">
+          <div class="about-scope-card scroll-reveal delay-1">
             <strong>Fase Inicial</strong>
             <p>Trabajos preliminares, movimientos de tierra y preparación técnica de plataformas.</p>
           </div>
-          <div class="about-scope-card">
+          <div class="about-scope-card scroll-reveal delay-2">
             <strong>Fase de Ejecución</strong>
             <p>Estructuración de obra civil, colados, albañilería, instalaciones hidrosanitarias y eléctricas.</p>
           </div>
-          <div class="about-scope-card">
+          <div class="about-scope-card scroll-reveal delay-3">
             <strong>Fase Final</strong>
             <p>Acabados arquitectónicos finos, aislamiento térmico, impermeabilización, mantenimiento y entrega.</p>
           </div>
         </div>
       </div>
 
-      <!-- Bloque Identidad justo abajo de Nosotros -->
       <div class="identity-container-sub">
-        <div class="view-header" style="border-bottom-color: #fdba74;">
+        <div class="view-header scroll-reveal" style="border-bottom-color: #fdba74;">
           <h2>Identidad y Respaldo</h2>
           <p>Compromiso personal, origen de la marca y responsabilidad en obra.</p>
         </div>
 
         <div class="identity-grid">
-          <div class="identity-card">
+          <div class="identity-card scroll-reveal delay-1">
             <h3>¿Qué Significa ERALTRE?</h3>
             <p style="color: var(--text-muted); margin-top: 0.75rem;">
               ERALTRE nace de las iniciales y el nombre de su fundador, simbolizando respaldo directo, presencia en obra y trato personal en cada asignación:
@@ -1280,7 +1297,7 @@
             </p>
           </div>
 
-          <div class="identity-card" style="display: flex; flex-direction: column; justify-content: center;">
+          <div class="identity-card scroll-reveal delay-2" style="display: flex; flex-direction: column; justify-content: center;">
             <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Dirección General</span>
             <h3 style="margin-top: 0.5rem; font-size: 1.8rem;">Ernesto Alejandro Treviño</h3>
             <p style="color: var(--text-muted); margin: 1rem 0;">
@@ -1298,13 +1315,13 @@
 
     <!-- PÁGINA 3: MODELO DUAL -->
     <section id="view-soluciones" class="page-view">
-      <div class="view-header">
+      <div class="view-header scroll-reveal">
         <h2>Modelo de Trabajo Dual</h2>
         <p>Estructuración técnica dividida para atender las necesidades específicas de profesionales y clientes finales.</p>
       </div>
 
       <div class="dual-cards-wrapper">
-        <div class="dual-box pro">
+        <div class="dual-box pro scroll-reveal delay-1">
           <div class="dual-box-header">
             <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-gold);">Ramo Profesional</span>
             <h3>Asesoría y Apoyo a Constructores</h3>
@@ -1332,7 +1349,7 @@
           </div>
         </div>
 
-        <div class="dual-box home">
+        <div class="dual-box home scroll-reveal delay-2">
           <div class="dual-box-header">
             <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #ffffff;">Cliente Directo</span>
             <h3>Servicios Integrales para el Hogar y Comercio</h3>
@@ -1368,13 +1385,13 @@
 
     <!-- PÁGINA 4: SERVICIOS Y SUMINISTROS -->
     <section id="view-servicios" class="page-view">
-      <div class="view-header">
+      <div class="view-header scroll-reveal">
         <h2>Catálogo de Servicios y Suministros</h2>
         <p>Capacidades técnicas integradas para obra civil, terracerías, insumos y terminaciones.</p>
       </div>
 
       <div class="services-grid-wrapper">
-        <div class="catalog-section">
+        <div class="catalog-section scroll-reveal">
           <h3>1. Terracerías, Cimentación y Estructura</h3>
           <div class="item-tags-container">
             <div class="service-spec-card">
@@ -1404,7 +1421,7 @@
           </div>
         </div>
 
-        <div class="catalog-section">
+        <div class="catalog-section scroll-reveal">
           <h3>2. Maquinaria Pesada, Agregados y Logística</h3>
           <div class="item-tags-container">
             <div class="service-spec-card">
@@ -1430,7 +1447,7 @@
           </div>
         </div>
 
-        <div class="catalog-section">
+        <div class="catalog-section scroll-reveal">
           <h3>3. Acabados, Herrería, Instalaciones y Mantenimiento</h3>
           <div class="item-tags-container">
             <div class="service-spec-card">
@@ -1484,12 +1501,12 @@
 
     <!-- PÁGINA 5: ALIANZA OPERATIVA -->
     <section id="view-aliado" class="page-view">
-      <div class="view-header">
+      <div class="view-header scroll-reveal">
         <h2>Alianza Estratégica en Obra</h2>
         <p>Una estructura de coordinación única que optimiza el tiempo y rentabilidad de los directores de obra.</p>
       </div>
 
-      <div class="about-lead-box" style="margin-bottom: 2rem;">
+      <div class="about-lead-box scroll-reveal" style="margin-bottom: 2rem;">
         <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Nuestro Enfoque con Arquitectos y Constructores</h3>
         <p>
           Entendemos que un arquitecto no solamente necesita un proveedor de materiales: <strong>necesita respuesta rápida, coordinación y capacidad real de ejecución</strong>.
@@ -1502,31 +1519,31 @@
         </p>
       </div>
 
-      <div class="view-header" style="border-bottom-color: #fdba74; margin-top: 2rem;">
+      <div class="view-header scroll-reveal" style="border-bottom-color: #fdba74; margin-top: 2rem;">
         <h3>Forma de Trabajo y Principio Operativo</h3>
         <p style="font-size: 1.15rem; font-weight: 600; color: var(--primary);">"Planear correctamente. Ejecutar con orden. Resolver en obra. Entregar resultados."</p>
       </div>
 
       <div class="steps-vertical-flow">
-        <div class="flow-step-card">
+        <div class="flow-step-card scroll-reveal delay-1">
           <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 1</span>
           <strong>Visita y Diagnóstico Técnico</strong>
           <p>Partimos de una visita o información técnica del proyecto para identificar alcances, condiciones de ejecución, maquinaria, mano de obra y logística requerida.</p>
         </div>
 
-        <div class="flow-step-card">
+        <div class="flow-step-card scroll-reveal delay-2">
           <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 2</span>
           <strong>Propuesta y Alcance Definido</strong>
           <p>Establecimiento formal de una propuesta económica justa con volumetría detallada, calendario de suministros y alcances puntualmente delimitados.</p>
         </div>
 
-        <div class="flow-step-card">
+        <div class="flow-step-card scroll-reveal delay-3">
           <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 3</span>
           <strong>Coordinación y Seguimiento</strong>
           <p>Durante la ejecución coordinamos los recursos necesarios y mantenemos seguimiento continuo del avance hasta concluir los trabajos contratados.</p>
         </div>
 
-        <div class="flow-step-card">
+        <div class="flow-step-card scroll-reveal delay-4">
           <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 4</span>
           <strong>Respaldo como Aliado de Obra</strong>
           <p>Intervenimos en especialidades aisladas o integramos diferentes partidas dentro del proyecto para que los despachos crezcan su capacidad sin inflar su estructura interna.</p>
@@ -1536,12 +1553,12 @@
 
     <!-- PÁGINA 6: CONTACTO -->
     <section id="view-contacto" class="page-view">
-      <div class="view-header">
+      <div class="view-header scroll-reveal">
         <h2>Contacto Directo y Cotizaciones</h2>
         <p>Comuníquese para solicitar presupuesto de materiales, maquinaria pesada o ejecución de obra.</p>
       </div>
 
-      <div class="contact-action-center">
+      <div class="contact-action-center scroll-reveal">
         <div class="contact-hero-banner">
           <span style="background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); padding: 0.35rem 0.85rem; border-radius: 30px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Atención Técnica Inmediata</span>
           <h3 style="margin-top: 1rem;">Cotice su Proyecto u Obra</h3>
@@ -1589,12 +1606,53 @@
   </footer>
 
   <script>
+    // Observador para animaciones fluidas al hacer scroll
+    let scrollObserver;
+
+    function initScrollObserver() {
+      if (scrollObserver) {
+        scrollObserver.disconnect();
+      }
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      };
+
+      scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const activeView = document.querySelector('.page-view.active-view');
+      if (activeView) {
+        const revealElements = activeView.querySelectorAll('.scroll-reveal');
+        revealElements.forEach(el => {
+          // Si el elemento ya está en pantalla, lo mostramos; si está más abajo, espera al scroll
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.92) {
+            setTimeout(() => el.classList.add('is-visible'), 50);
+          } else {
+            el.classList.remove('is-visible');
+            scrollObserver.observe(el);
+          }
+        });
+      }
+    }
+
     function navigateTo(pageId) {
       const views = document.querySelectorAll('.page-view');
       const navButtons = document.querySelectorAll('.nav-btn');
 
       views.forEach(v => {
         v.classList.remove('active-view');
+        // Reset de visibilidad para que vuelva a animarse fluidamente
+        v.querySelectorAll('.scroll-reveal').forEach(el => el.classList.remove('is-visible'));
       });
 
       navButtons.forEach(btn => {
@@ -1606,12 +1664,9 @@
 
       const target = document.getElementById('view-' + pageId);
       if (target) {
-        target.style.animation = 'none';
-        target.offsetHeight; /* reiniciar animación al cambiar de pestaña */
-        target.style.animation = null;
-        
         target.classList.add('active-view');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(initScrollObserver, 60);
       }
 
       const menu = document.getElementById('mainMenu');
@@ -1633,6 +1688,11 @@
       if (menu && toggle && menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
         menu.classList.remove('open');
       }
+    });
+
+    // Iniciar al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      initScrollObserver();
     });
   </script>
 </body>
