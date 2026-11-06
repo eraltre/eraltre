@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Integrales de Construcción y Asesoría Técnica</title>
+  <meta name="description" content="Servicios integrales para arquitectos, ingenieros, constructores y proyectos residenciales, comerciales e industriales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-hover: #b45309;
+      --primary-light: #fff7ed;
+      --primary-border: #fed7aa;
+      --accent-gold: #f59e0b;
+      --secondary: #0f172a;
+      --slate-dark: #1e293b;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --whatsapp: #25d366;
+      --whatsapp-hover: #1eb954;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --shadow-card: 0 12px 32px -4px rgba(15, 23, 42, 0.1);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Barlow', sans-serif;
+      color: var(--secondary);
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+    }
+
+    /* Efecto de revelación gradual al mostrarse por primera vez */
+    @keyframes revealEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(26px) scale(0.995);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Navegación y Encabezado */
+    .header-nav {
+      background-color: var(--surface);
+      border-bottom: 2px solid var(--border);
+      position: relative;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-logo img {
+      max-height: 52px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .nav-btn {
+      background: none;
+      border: 1px solid transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--slate-dark);
+      padding: 0.55rem 0.9rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-btn:hover {
+      color: var(--primary);
+      background-color: var(--primary-light);
+      border-color: var(--primary-border);
+    }
+
+    .nav-btn.active {
+      color: var(--primary-hover);
+      background-color: #ffedd5;
+      border-color: #fdba74;
+      font-weight: 700;
+    }
+
+    .nav-btn.nav-contact-link {
+      color: var(--primary);
+      background-color: #fffaf0;
+      border: 1.5px solid #fed7aa;
+      font-weight: 700;
+    }
+
+    .nav-btn.nav-contact-link:hover,
+    .nav-btn.nav-contact-link.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.4rem;
+      color: var(--secondary);
+    }
+
+    .menu-toggle svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    /* Vistas de Página */
+    .view-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3.5rem 1.5rem;
+      min-height: calc(100vh - 220px);
+    }
+
+    .page-view {
+      display: none;
+    }
+
+    .page-view.active-view {
+      display: block;
+      animation: revealEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* HERO: FONDO CON 10% MÁS DE VISIBILIDAD EN PC */
+    .hero-banner-pro {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+      background-color: #1e293b;
+      background-image: url('fondo.jpeg');
+      background-position: center right;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* Capa con opacidad reducida en 10% para que el fondo se aprecie más claro en toda la pantalla */
+    .hero-banner-pro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0.78) 0%, 
+        rgba(255, 255, 255, 0.72) 48%, 
+        rgba(255, 255, 255, 0.42) 75%, 
+        rgba(255, 255, 255, 0.10) 100%
+      );
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      z-index: 1;
+    }
+
+    .hero-banner-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 4.5rem 3.5rem;
+    }
+
+    .hero-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 237, 213, 0.95);
+      color: #9a3412;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.4rem 0.95rem;
+      border-radius: 30px;
+      border: 1px solid #fed7aa;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .hero-banner-inner h1 {
+      font-size: 3.4rem;
+      color: var(--secondary);
+      margin-bottom: 1.1rem;
+      letter-spacing: -0.5px;
+      line-height: 1.08;
+      text-shadow: 0 2px 4px rgba(255,255,255,0.9);
+    }
+
+    .hero-banner-inner h1 .highlight {
+      color: var(--primary);
+    }
+
+    .hero-lead-text {
+      font-size: 1.2rem;
+      color: var(--text-main);
+      margin-bottom: 1.85rem;
+      font-weight: 600;
+      line-height: 1.6;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.85);
+    }
+
+    .hero-badges-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--slate-dark);
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .hero-actions-cluster {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      padding: 0.95rem 1.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.96rem;
+      font-weight: 800;
+      font-family: 'Barlow', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .btn-action svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .btn-primary-whatsapp {
+      background: var(--whatsapp);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-primary-whatsapp:hover {
+      background: var(--whatsapp-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-outline-dark {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: var(--slate-dark);
+      color: var(--slate-dark);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .btn-outline-dark:hover {
+      background: var(--slate-dark);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* FRASE DE MARCA CENTRADA */
+    .motto-bar {
+      background: linear-gradient(90deg, #1e293b 0%, #0f172a 100%);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 2.5rem;
+      margin: 2.5rem 0 2rem 0;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-left: 6px solid var(--primary);
+      border-right: 6px solid var(--primary);
+    }
+
+    .motto-bar p {
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #ffffff;
+      line-height: 1.3;
+      margin: 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .motto-bar p span {
+      color: var(--accent-gold);
+    }
+
+    /* ZONA DE COBERTURA CENTRADA CON SEPARADOR */
+    .coverage-centered-section {
+      text-align: center;
+      max-width: 860px;
+      margin: 2.5rem auto;
+      padding: 1.5rem 1rem 2.5rem 1rem;
+    }
+
+    .coverage-title-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .coverage-title-wrapper svg {
+      width: 26px;
+      height: 26px;
+      color: var(--primary);
+    }
+
+    .coverage-separator {
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, #fed7aa 0%, var(--primary) 50%, #fed7aa 100%);
+      border-radius: 4px;
+      margin: 0.6rem auto 1.25rem auto;
+    }
+
+    .coverage-centered-section p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    .coverage-centered-section p strong {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    /* 4 Pilares */
+    .card-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+
+    .card-pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.7rem;
+      box-shadow: var(--shadow-subtle);
+      transition: var(--transition);
+      border-top: 4px solid var(--primary);
+    }
+
+    .card-pillar:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+      border-color: #fdba74;
+    }
+
+    .pillar-icon {
+      width: 46px;
+      height: 46px;
+      background: #ffedd5;
+      color: var(--primary-hover);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .card-pillar h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .card-pillar p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Secuencia Operativa */
+    .workflow-strip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .workflow-strip h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .workflow-strip .sub-title {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .step-node {
+      background: #fffdfa;
+      border: 1.5px solid #fed7aa;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-family: 'Barlow', sans-serif;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem auto;
+    }
+
+    .step-node h5 {
+      font-size: 1.05rem;
+      color: var(--secondary);
+      margin-bottom: 0.35rem;
+    }
+
+    .step-node p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Cabeceras de Sección */
+    .view-header {
+      margin-bottom: 2.2rem;
+      border-bottom: 3px solid #ffedd5;
+      padding-bottom: 1.25rem;
+    }
+
+    .view-header h2 {
+      font-size: 2.25rem;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .view-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* PÁGINA: NOSOTROS + IDENTIDAD */
+    .about-lead-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .about-lead-box h3 {
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+
+    .about-lead-box p {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-scope-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+
+    .about-scope-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+      border-radius: var(--radius-md);
+    }
+
+    .about-scope-card strong {
+      display: block;
+      color: var(--secondary);
+      font-size: 1.1rem;
+      font-family: 'Barlow', sans-serif;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-scope-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .identity-container-sub {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 2px dashed #fed7aa;
+    }
+
+    .identity-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+    }
+
+    .identity-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .acronym-table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border-collapse: collapse;
+    }
+
+    .acronym-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .acronym-table td {
+      padding: 0.85rem 0.5rem;
+    }
+
+    .code-pill {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      background: var(--slate-dark);
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      text-align: center;
+      min-width: 60px;
+    }
+
+    .name-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    /* Modelo Dual */
+    .dual-cards-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .dual-box {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dual-box-header {
+      padding: 1.75rem;
+      color: white;
+    }
+
+    .dual-box.pro .dual-box-header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .dual-box.home .dual-box-header {
+      background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+      border-bottom: 4px solid var(--accent-gold);
+    }
+
+    .dual-box-header h3 {
+      color: #ffffff;
+      font-size: 1.45rem;
+      margin-top: 0.5rem;
+    }
+
+    .dual-box-body {
+      padding: 2rem;
+      flex-grow: 1;
+    }
+
+    .dual-box-body p {
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+    }
+
+    .dual-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .dual-feature-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .check-icon {
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: bold;
+    }
+
+    /* Catálogo de Servicios */
+    .services-grid-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .catalog-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .catalog-section h3 {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #fed7aa;
+    }
+
+    .item-tags-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .service-spec-card {
+      background: #fdfefe;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .service-spec-card:hover {
+      border-left-color: var(--secondary);
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .service-spec-card strong {
+      display: block;
+      color: var(--secondary);
+      font-family: 'Barlow', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .service-spec-card span {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      display: block;
+    }
+
+    /* Alianza Operativa */
+    .steps-vertical-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .flow-step-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+    }
+
+    .flow-step-card strong {
+      display: block;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      font-family: 'Barlow', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-step-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Contacto */
+    .contact-action-center {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-subtle);
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-hero-banner {
+      background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+      padding: 3rem 2.5rem;
+      color: white;
+      text-align: center;
+      border-bottom: 5px solid var(--primary);
+    }
+
+    .contact-hero-banner h3 {
+      color: #ffffff;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-hero-banner p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-interactive-body {
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .large-phone-display {
+      font-family: 'Barlow', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--secondary);
+      letter-spacing: 2px;
+      margin: 1rem 0;
+      display: inline-block;
+    }
+
+    .action-buttons-stack {
+      display: flex;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 550px;
+      margin-top: 1.5rem;
+    }
+
+    .btn-contact-lg, .btn-call-lg {
+      flex: 1;
+      padding: 1.1rem 1.5rem;
+      font-size: 1.05rem;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-contact-lg {
+      background: var(--whatsapp);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-contact-lg:hover {
+      background: var(--whatsapp-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-call-lg {
+      background: var(--secondary);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.3);
+    }
+
+    .btn-call-lg:hover {
+      background: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+    }
+
+    .contact-details-box {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px dashed #cbd5e1;
+      width: 100%;
+      max-width: 650px;
+      text-align: left;
+    }
+
+    .contact-details-box h5 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .contact-details-box p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    .site-footer {
+      background-color: var(--surface);
+      border-top: 2px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .footer-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    /* ADAPTABILIDAD MÓVIL Y DISPOSITIVOS PLEGABLES */
+    @media (max-width: 992px) {
+      .hero-banner-inner {
+        padding: 3.5rem 2rem;
+        max-width: 100%;
+      }
+      .dual-cards-wrapper, 
+      .identity-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--surface);
+        flex-direction: column;
+        padding: 1.5rem;
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        gap: 0.75rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-btn {
+        width: 100%;
+        text-align: left;
+        padding: 0.85rem 1.1rem;
+        font-size: 1rem;
+      }
+
+      /* EN MÓVILES: 10% MÁS DE VISIBILIDAD DEL FONDO (OPACIDAD AJUSTADA) */
+      .hero-banner-pro {
+        background-position: 65% center;
+      }
+
+      .hero-banner-pro::before {
+        background: linear-gradient(
+          180deg, 
+          rgba(255, 255, 255, 0.68) 0%, 
+          rgba(255, 255, 255, 0.62) 65%, 
+          rgba(255, 255, 255, 0.48) 100%
+        );
+        backdrop-filter: blur(0.5px);
+        -webkit-backdrop-filter: blur(0.5px);
+      }
+
+      .hero-banner-inner {
+        padding: 2.6rem 1.25rem;
+      }
+
+      .hero-banner-inner h1 {
+        font-size: 2.15rem;
+        text-shadow: 0 2px 5px rgba(255, 255, 255, 0.95);
+      }
+
+      .coverage-centered-section {
+        padding: 1rem 0.5rem 2rem 0.5rem;
+      }
+
+      .coverage-title-wrapper {
+        font-size: 1.35rem;
+      }
+
+      .coverage-centered-section p {
+        font-size: 0.95rem;
+      }
+
+      .large-phone-display {
+        font-size: 2.2rem;
+      }
+
+      .action-buttons-stack {
+        flex-direction: column;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-logo img {
+        max-height: 40px;
+      }
+      .hero-banner-inner h1 {
+        font-size: 1.85rem;
+      }
+      .motto-bar p {
+        font-size: 1.25rem;
+      }
+      .large-phone-display {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Navegación con logo.jpeg -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="#inicio" class="brand-logo" onclick="navigateTo('inicio')">
+        <img src="logo.jpeg" alt="Logo de la Empresa">
+      </a>
+
+      <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" onclick="toggleMenu()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <ul class="nav-links" id="mainMenu">
+        <li><button type="button" class="nav-btn active" data-page="inicio" onclick="navigateTo('inicio')">Inicio</button></li>
+        <li><button type="button" class="nav-btn" data-page="nosotros" onclick="navigateTo('nosotros')">Nosotros</button></li>
+        <li><button type="button" class="nav-btn" data-page="soluciones" onclick="navigateTo('soluciones')">Modelo Dual</button></li>
+        <li><button type="button" class="nav-btn" data-page="servicios" onclick="navigateTo('servicios')">Servicios &amp; Suministros</button></li>
+        <li><button type="button" class="nav-btn" data-page="aliado" onclick="navigateTo('aliado')">Alianza Operativa</button></li>
+        <li><button type="button" class="nav-btn nav-contact-link" data-page="contacto" onclick="navigateTo('contacto')">Contacto</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="view-container">
+
+    <!-- PÁGINA 1: INICIO -->
+    <section id="view-inicio" class="page-view active-view">
+      
+      <!-- HERO CON FONDO OPTIMIZADO PARA MAYOR VISIBILIDAD (+10%) -->
+      <div class="hero-banner-pro">
+        <div class="hero-banner-inner">
+          <span class="hero-tag-badge">
+            <svg style="width: 14px; height: 14px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Infraestructura &bull; Respaldo Técnico &bull; Suministros
+          </span>
+
+          <h1>Tu Proyecto, <br><span class="highlight">Nuestra Ejecución</span></h1>
+          <p class="hero-lead-text">Desde el movimiento de tierra hasta el último detalle de acabado. Servicios integrales para arquitectos, ingenieros, constructores y desarrolladores.</p>
+          
+          <div class="hero-badges-strip">
+            <span class="tag-pill">Obra Civil</span>
+            <span class="tag-pill">Terracerías</span>
+            <span class="tag-pill">Maquinaria</span>
+            <span class="tag-pill">Concreto</span>
+            <span class="tag-pill">Acabados</span>
+            <span class="tag-pill">Instalaciones</span>
+            <span class="tag-pill">Mantenimiento</span>
+          </div>
+
+          <div class="hero-actions-cluster">
+            <a href="https://wa.me/528113256958?text=Hola,%20solicito%20una%20cotizaci%C3%B3n%20para%20un%20proyecto%20de%20construcci%C3%B3n." target="_blank" rel="noopener noreferrer" class="btn-action btn-primary-whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+              Solicitar Cotización
+            </a>
+            <button type="button" class="btn-action btn-outline-dark" onclick="navigateTo('servicios')">
+              Ver Servicios
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRASE DE MARCA PERFECTAMENTE CENTRADA -->
+      <div class="motto-bar">
+        <p>"El camino al éxito <span>siempre está en construcción.</span>"</p>
+      </div>
+
+      <!-- ZONA DE COBERTURA CENTRADA CON SEPARADOR ELEGANTE -->
+      <div class="coverage-centered-section">
+        <div class="coverage-title-wrapper">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Zona de Cobertura</span>
+        </div>
+        
+        <div class="coverage-separator"></div>
+
+        <p>
+          Atención prioritaria y despacho operativo en <strong>Monterrey y su área metropolitana</strong>. Suministros directos de materiales de banco, concreto premezclado, maquinaria pesada y personal técnico especializado conforme a los alcances y la programación técnica de su obra.
+        </p>
+      </div>
+
+      <!-- 4 Pilares -->
+      <div class="card-grid-4">
+        <div class="card-pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4>Solución Integral</h4>
+          <p>Cobertura integral desde el análisis preliminar de terreno hasta el último acabado arquitectónico.</p>
+        </div>
+
+        <div class="card-pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4>Ejecución Confiable</h4>
+          <p>Operación conforme a especificaciones técnicas, planos y tiempos pactados de entrega.</p>
+        </div>
+
+        <div class="card-pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Coordinación Eficiente</h4>
+          <p>Un solo frente de mando para gestionar maquinaria, acarreos, suministros y cuadrillas.</p>
+        </div>
+
+        <div class="card-pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h4>Resultados Reales</h4>
+          <p>Entregas comprobadas en obra residencial, industrial, comercial y de urbanización.</p>
+        </div>
+      </div>
+
+      <!-- Secuencia Operativa -->
+      <div class="workflow-strip">
+        <h3>Secuencia Operativa de Obra</h3>
+        <p class="sub-title">Compromiso técnico estructurado en 5 etapas secuenciales</p>
+        <div class="steps-container">
+          <div class="step-node">
+            <div class="step-number">1</div>
+            <h5>Planeación</h5>
+            <p>Revisión técnica, volumetría y catálogo de conceptos.</p>
+          </div>
+          <div class="step-node">
+            <div class="step-number">2</div>
+            <h5>Ejecución</h5>
+            <p>Despliegue de maquinaria, terracerías y colados en sitio.</p>
+          </div>
+          <div class="step-node">
+            <div class="step-number">3</div>
+            <h5>Coordinación</h5>
+            <p>Control de suministros, logística de acarreo y personal.</p>
+          </div>
+          <div class="step-node">
+            <div class="step-number">4</div>
+            <h5>Solución en Obra</h5>
+            <p>Resolución práctica de imprevistos y ajustes constructivos.</p>
+          </div>
+          <div class="step-node">
+            <div class="step-number">5</div>
+            <h5>Resultados</h5>
+            <p>Entrega puntual de partidas concluidas y verificadas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 2: NOSOTROS + IDENTIDAD ABAJO -->
+    <section id="view-nosotros" class="page-view">
+      <div class="view-header">
+        <h2>¿Quiénes Somos?</h2>
+        <p>Soluciones prácticas, técnicas y confiables para la industria de la construcción.</p>
+      </div>
+
+      <div class="about-lead-box">
+        <h3>Especialistas en Ejecución y Solución Operativa</h3>
+        <p>
+          Somos una empresa dedicada a la <strong>ejecución, suministro, coordinación y solución</strong> de trabajos relacionados con construcción, remodelación, mantenimiento y servicios especializados.
+        </p>
+        <p>
+          Trabajamos principalmente en proyectos <strong>residenciales, comerciales, industriales y de urbanización</strong>, adaptándonos con solvencia técnica tanto a trabajos puntuales como a proyectos integrales llave en mano.
+        </p>
+        <p>
+          Nuestro objetivo fundamental es convertirnos en un <strong>aliado operativo para arquitectos y constructores</strong>, resolviendo las diferentes etapas de una obra mediante una sola estructura de coordinación eficiente.
+        </p>
+
+        <div class="about-scope-grid">
+          <div class="about-scope-card">
+            <strong>Fase Inicial</strong>
+            <p>Trabajos preliminares, movimientos de tierra y preparación técnica de plataformas.</p>
+          </div>
+          <div class="about-scope-card">
+            <strong>Fase de Ejecución</strong>
+            <p>Estructuración de obra civil, colados, albañilería, instalaciones hidrosanitarias y eléctricas.</p>
+          </div>
+          <div class="about-scope-card">
+            <strong>Fase Final</strong>
+            <p>Acabados arquitectónicos finos, aislamiento térmico, impermeabilización, mantenimiento y entrega.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloque Identidad justo abajo de Nosotros -->
+      <div class="identity-container-sub">
+        <div class="view-header" style="border-bottom-color: #fdba74;">
+          <h2>Identidad y Respaldo</h2>
+          <p>Compromiso personal, origen de la marca y responsabilidad en obra.</p>
+        </div>
+
+        <div class="identity-grid">
+          <div class="identity-card">
+            <h3>¿Qué Significa ERALTRE?</h3>
+            <p style="color: var(--text-muted); margin-top: 0.75rem;">
+              ERALTRE nace de las iniciales y el nombre de su fundador, simbolizando respaldo directo, presencia en obra y trato personal en cada asignación:
+            </p>
+
+            <table class="acronym-table">
+              <tbody>
+                <tr>
+                  <td style="width: 80px;"><span class="code-pill">ER</span></td>
+                  <td class="name-text">Ernesto</td>
+                </tr>
+                <tr>
+                  <td><span class="code-pill">AL</span></td>
+                  <td class="name-text">Alejandro</td>
+                </tr>
+                <tr>
+                  <td><span class="code-pill">TRE</span></td>
+                  <td class="name-text">Treviño</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+              Más que un nombre comercial, representa una estructura mexicana enfocada en brindar certidumbre, orden y capacidad de resolución para la industria de la construcción.
+            </p>
+          </div>
+
+          <div class="identity-card" style="display: flex; flex-direction: column; justify-content: center;">
+            <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Dirección General</span>
+            <h3 style="margin-top: 0.5rem; font-size: 1.8rem;">Ernesto Alejandro Treviño</h3>
+            <p style="color: var(--text-muted); margin: 1rem 0;">
+              Dirección y Coordinación General. Atención personalizada para la revisión de generadores, especificaciones, presupuestos y calendarización técnica de suministros.
+            </p>
+
+            <div style="background: #fff7ed; border-left: 4px solid var(--primary); padding: 1.1rem 1.25rem; border-radius: 4px;">
+              <span style="font-weight: 700; color: var(--secondary); display: block; margin-bottom: 0.25rem;">Zona de Cobertura Activa:</span>
+              <span style="color: var(--text-main); font-size: 0.92rem;">Monterrey y su Área Metropolitana (San Pedro, Santa Catarina, Guadalupe, Apodaca, San Nicolás, Escobedo y Juárez).</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 3: MODELO DUAL -->
+    <section id="view-soluciones" class="page-view">
+      <div class="view-header">
+        <h2>Modelo de Trabajo Dual</h2>
+        <p>Estructuración técnica dividida para atender las necesidades específicas de profesionales y clientes finales.</p>
+      </div>
+
+      <div class="dual-cards-wrapper">
+        <div class="dual-box pro">
+          <div class="dual-box-header">
+            <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--accent-gold);">Ramo Profesional</span>
+            <h3>Asesoría y Apoyo a Constructores</h3>
+          </div>
+          <div class="dual-box-body">
+            <p>Atención directa para <strong>arquitectos, ingenieros, albañiles y contratistas</strong> que buscan respaldo operativo sin incrementar costos fijos ni nómina interna.</p>
+            <ul class="dual-feature-list">
+              <li>
+                <span class="check-icon">&#10003;</span>
+                <div><strong>Asesoría técnica en sitio:</strong> Revisión de planos, niveles topográficos, ejes y cálculo de volúmenes de colado.</div>
+              </li>
+              <li>
+                <span class="check-icon">&#10003;</span>
+                <div><strong>Renta de maquinaria con operador:</strong> Retroexcavadoras, excavadoras, vibrocompactadores y martillo hidráulico.</div>
+              </li>
+              <li>
+                <span class="check-icon">&#10003;</span>
+                <div><strong>Suministro de obra pesada:</strong> Concreto premezclado, bombeo programado, varilla, cemento y agregados.</div>
+              </li>
+              <li>
+                <span class="check-icon">&#10003;</span>
+                <div><strong>Retiro y acarreo:</strong> Fletes de materiales y retiro de escombros o producto de excavación.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dual-box home">
+          <div class="dual-box-header">
+            <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #ffffff;">Cliente Directo</span>
+            <h3>Servicios Integrales para el Hogar y Comercio</h3>
+          </div>
+          <div class="dual-box-body">
+            <p>Construimos, remodelamos y damos mantenimiento integral directo con presupuesto cerrado y compromiso formal.</p>
+            <ul class="dual-feature-list">
+              <li>
+                <span class="check-icon" style="color: #b45309;">&#10003;</span>
+                <div><strong>Construcción y Remodelación:</strong> Ampliaciones, bardas, firmes, losas, baños, fachadas y terrazas.</div>
+              </li>
+              <li>
+                <span class="check-icon" style="color: #b45309;">&#10003;</span>
+                <div><strong>Acabados Finos:</strong> Colocación de pisos, azulejos, zoclos, pintura, estuco, yeso y resanes.</div>
+              </li>
+              <li>
+                <span class="check-icon" style="color: #b45309;">&#10003;</span>
+                <div><strong>Impermeabilización Especializada:</strong> Azoteas, marquesinas y aplicación de poliuretano espreado.</div>
+              </li>
+              <li>
+                <span class="check-icon" style="color: #b45309;">&#10003;</span>
+                <div><strong>Herrería y Estructuras:</strong> Portones, puertas, protecciones de ventana, cancelería y techumbres.</div>
+              </li>
+              <li>
+                <span class="check-icon" style="color: #b45309;">&#10003;</span>
+                <div><strong>Instalaciones y Mantenimiento:</strong> Reparación de fugas, iluminación, plomería, drenaje y minisplits.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 4: SERVICIOS Y SUMINISTROS -->
+    <section id="view-servicios" class="page-view">
+      <div class="view-header">
+        <h2>Catálogo de Servicios y Suministros</h2>
+        <p>Capacidades técnicas integradas para obra civil, terracerías, insumos y terminaciones.</p>
+      </div>
+
+      <div class="services-grid-wrapper">
+        <div class="catalog-section">
+          <h3>1. Terracerías, Cimentación y Estructura</h3>
+          <div class="item-tags-container">
+            <div class="service-spec-card">
+              <strong>Obra Civil</strong>
+              <span>Cimentaciones, zapatas, dalas, firmes, losas, muros de contención, banquetas, guarniciones y elementos de concreto.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Terracerías y Terreno</strong>
+              <span>Excavación, despalme, rellenos, conformación, nivelación, compactación y mejoramiento de plataformas.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Topografía Especializada</strong>
+              <span>Levantamientos de terreno, trazos de precisión, niveles, ejes y apoyo técnico para ejecución de obra.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Concreto Premezclado y Bombeo</strong>
+              <span>Suministro de diferentes resistencias, servicio de bombeo, colocación y coordinación de colados continuos.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Albañilería Estructural</strong>
+              <span>Muros de block, castillos, cerramientos, resanes, modificaciones y adecuaciones generales.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Servicios Especializados</strong>
+              <span>Concreto lanzado, estabilización de taludes, colocación de mallas, canales, obras hidráulicas y recubrimientos estructurales.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-section">
+          <h3>2. Maquinaria Pesada, Agregados y Logística</h3>
+          <div class="item-tags-container">
+            <div class="service-spec-card">
+              <strong>Maquinaria con Operador</strong>
+              <span>Retroexcavadora, excavadora, martillo hidráulico, motoconformadora, vibrocompactador, rodillo y equipo auxiliar.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Suministro de Materiales</strong>
+              <span>Cemento, block, acero, arena, grava, tierra amarilla, material de banco, bases y agregados para ejecución.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Retiro de Escombro y Fletes</strong>
+              <span>Carga, acarreo, desalojo de producto de excavación, disposición y logística en unidades de diversas capacidades.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Pavimentación y Urbanización</strong>
+              <span>Preparación de terreno, tendido de base, compactación, impregnación, poreo, carpeta y trabajos complementarios.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Logística y Coordinación de Obra</strong>
+              <span>Gestión integral de personal técnico, maquinaria, insumos de banco, proveedores y secuencia operativa.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-section">
+          <h3>3. Acabados, Herrería, Instalaciones y Mantenimiento</h3>
+          <div class="item-tags-container">
+            <div class="service-spec-card">
+              <strong>Acabados y Recubrimientos</strong>
+              <span>Yeso, empastados, pintura vinílica y esmalte, pisos cerámicos, azulejos, estuco, zoclos y revestimientos.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Concreto Arquitectónico</strong>
+              <span>Concreto estampado, firmes, pulido de pisos industriales y acabados especiales de alta resistencia.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Aislamiento Térmico</strong>
+              <span>Instalación de placa Foamular, poliuretano espreado y sistemas complementarios de aislamiento en losas y muros.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Impermeabilización</strong>
+              <span>Sistemas tradicionales y soluciones especializadas para azoteas, marquesinas y cubiertas.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Herrería y Soldadura</strong>
+              <span>Fabricación, modificación y reparación de estructuras metálicas, portones, protecciones, puertas y techumbres.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Cancelería y Carpintería</strong>
+              <span>Coordinación, fabricación e instalación de elementos complementarios de obra.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Plomería e Hidráulica</strong>
+              <span>Instalaciones hidráulicas y sanitarias, drenajes, tinacos, cisternas, reparación de fugas y adecuaciones.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Electricidad e Iluminación</strong>
+              <span>Instalaciones completas, preparaciones, centros de carga, adecuaciones, iluminación y mantenimiento preventivo.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Climatización Minisplit</strong>
+              <span>Preparación técnica de líneas, instalación y mantenimiento integral de equipos minisplit.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Demoliciones Controladas</strong>
+              <span>Retiro controlado de elementos estructurales, muros, firmes y preparación de áreas para remodelación.</span>
+            </div>
+            <div class="service-spec-card">
+              <strong>Mantenimiento Integral</strong>
+              <span>Atención preventiva y correctiva para inmuebles residenciales, locales comerciales e instalaciones industriales.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 5: ALIANZA OPERATIVA -->
+    <section id="view-aliado" class="page-view">
+      <div class="view-header">
+        <h2>Alianza Estratégica en Obra</h2>
+        <p>Una estructura de coordinación única que optimiza el tiempo y rentabilidad de los directores de obra.</p>
+      </div>
+
+      <div class="about-lead-box" style="margin-bottom: 2rem;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Nuestro Enfoque con Arquitectos y Constructores</h3>
+        <p>
+          Entendemos que un arquitecto no solamente necesita un proveedor de materiales: <strong>necesita respuesta rápida, coordinación y capacidad real de ejecución</strong>.
+        </p>
+        <p>
+          Por ello, participamos como un <strong>apoyo directo para resolver paquetes completos de trabajo</strong>, evitando que el profesionista tenga que coordinar individualmente operadores de maquinaria, fletes de material, plantas de concreto y cuadrillas de diversas especialidades.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Trabajamos sobre planos, levantamientos, generadores, volúmenes y alcances claramente definidos, manteniendo una comunicación constante y transparente durante toda la ejecución.
+        </p>
+      </div>
+
+      <div class="view-header" style="border-bottom-color: #fdba74; margin-top: 2rem;">
+        <h3>Forma de Trabajo y Principio Operativo</h3>
+        <p style="font-size: 1.15rem; font-weight: 600; color: var(--primary);">"Planear correctamente. Ejecutar con orden. Resolver en obra. Entregar resultados."</p>
+      </div>
+
+      <div class="steps-vertical-flow">
+        <div class="flow-step-card">
+          <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 1</span>
+          <strong>Visita y Diagnóstico Técnico</strong>
+          <p>Partimos de una visita o información técnica del proyecto para identificar alcances, condiciones de ejecución, maquinaria, mano de obra y logística requerida.</p>
+        </div>
+
+        <div class="flow-step-card">
+          <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 2</span>
+          <strong>Propuesta y Alcance Definido</strong>
+          <p>Establecimiento formal de una propuesta económica justa con volumetría detallada, calendario de suministros y alcances puntualmente delimitados.</p>
+        </div>
+
+        <div class="flow-step-card">
+          <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 3</span>
+          <strong>Coordinación y Seguimiento</strong>
+          <p>Durante la ejecución coordinamos los recursos necesarios y mantenemos seguimiento continuo del avance hasta concluir los trabajos contratados.</p>
+        </div>
+
+        <div class="flow-step-card">
+          <span style="color: var(--primary); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">Etapa 4</span>
+          <strong>Respaldo como Aliado de Obra</strong>
+          <p>Intervenimos en especialidades aisladas o integramos diferentes partidas dentro del proyecto para que los despachos crezcan su capacidad sin inflar su estructura interna.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 6: CONTACTO -->
+    <section id="view-contacto" class="page-view">
+      <div class="view-header">
+        <h2>Contacto Directo y Cotizaciones</h2>
+        <p>Comuníquese para solicitar presupuesto de materiales, maquinaria pesada o ejecución de obra.</p>
+      </div>
+
+      <div class="contact-action-center">
+        <div class="contact-hero-banner">
+          <span style="background: rgba(251, 191, 36, 0.2); color: var(--accent-gold); padding: 0.35rem 0.85rem; border-radius: 30px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Atención Técnica Inmediata</span>
+          <h3 style="margin-top: 1rem;">Cotice su Proyecto u Obra</h3>
+          <p>Estamos a sus órdenes como proveedor de materiales, maquinaria y servicios de apoyo técnico para sus proyectos de construcción y remodelación en Monterrey y su área metropolitana.</p>
+        </div>
+
+        <div class="contact-interactive-body">
+          <span style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Línea Directa de Coordinación</span>
+          
+          <div class="large-phone-display">811 325 69 58</div>
+
+          <div class="action-buttons-stack">
+            <a href="https://wa.me/528113256958?text=Buen%20d%C3%ADa,%20me%20gustar%C3%ADa%20cotizar%20servicios%20de%20construcci%C3%B3n%20y/o%20suministros." target="_blank" rel="noopener noreferrer" class="btn-contact-lg">
+              <svg style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+              Contacto
+            </a>
+
+            <a href="tel:+528113256958" class="btn-call-lg">
+              <svg style="width: 22px; height: 22px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Llamar
+            </a>
+          </div>
+
+          <div class="contact-details-box">
+            <h5>Información para agilizar su cotización</h5>
+            <p>
+              Si tiene algún requerimiento próximo, con gusto le cotizamos. Puede enviarnos vía WhatsApp o llamada: <strong>la ubicación exacta</strong>, <strong>cantidades o conceptos requeridos</strong> y la <strong>fecha programada en que necesita el servicio</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <strong style="color: var(--secondary);">SERVICIOS + CONSTRUCCIÓN</strong> &bull; Respaldo Operativo y Asesoría Técnica
+      </div>
+      <div>
+        Monterrey y Zona Metropolitana &bull; Tel: 811 325 69 58
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function navigateTo(pageId) {
+      const views = document.querySelectorAll('.page-view');
+      const navButtons = document.querySelectorAll('.nav-btn');
+
+      views.forEach(v => {
+        v.classList.remove('active-view');
+      });
+
+      navButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-page') === pageId) {
+          btn.classList.add('active');
+        }
+      });
+
+      const target = document.getElementById('view-' + pageId);
+      if (target) {
+        target.style.animation = 'none';
+        target.offsetHeight; /* reiniciar animación al cambiar de pestaña */
+        target.style.animation = null;
+        
+        target.classList.add('active-view');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      const menu = document.getElementById('mainMenu');
+      if (menu && menu.classList.contains('open')) {
+        menu.classList.remove('open');
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById('mainMenu');
+      if (menu) {
+        menu.classList.toggle('open');
+      }
+    }
+
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mainMenu');
+      const toggle = document.getElementById('menuToggle');
+      if (menu && toggle && menu.classList.contains('open') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
